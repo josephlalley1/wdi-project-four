@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const trades = require('../controllers/tradesController');
+const transactions = require('../controllers/transactionsController');
 const authController = require('../controllers/authController');
 
-router.route('/trades')
-  .get(trades.index)
-  .post(trades.create);
+router.route('/transactions')
+  .get(transactions.index)
+  .post(transactions.create);
 
-router.route('/trades/:id')
-  .get(trades.show)
-  .put(trades.update)
-  .delete(trades.delete);
+router.route('/transactions/:id')
+  .get(transactions.show)
+  .put(transactions.update)
+  .delete(transactions.delete);
 
 router.post('/register', authController.register);
 router.post('/login', authController.login);
