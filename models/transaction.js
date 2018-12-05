@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 // Symbol === coin initials
 const tradesSchema = mongoose.Schema({
   coinName: String,
