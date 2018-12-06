@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const environment = require('../config/environment');
 mongoose.connect(environment.dbURI);
-const Transactions = require('../models/transaction');
+const Trades = require('../models/trade');
 const User = require('../models/user');
 
 const userIds = [
@@ -25,7 +25,7 @@ const userData = [
 ];
 
 
-const addedTransactions = [
+const addedTrades = [
   {
     coinName: 'Bitcoin',
     symbol: 'BTC',
@@ -46,12 +46,12 @@ const addedTransactions = [
   }
 ];
 
-Transactions.collection.drop();
+Trades.collection.drop();
 User.collection.drop();
 
-Transactions.create(addedTransactions)
-  .then(transactions => {
-    console.log(`Created ${transactions.length} transactions`);
+Trades.create(addedTrades)
+  .then(trades => {
+    console.log(`Created ${trades.length} trades`);
     User.create(userData)
       .then(users => {
         console.log(`Created ${users.length} users`);

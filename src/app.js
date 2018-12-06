@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
+import TradeIndex from './components/trades/Index';
 
 import './scss/style.scss';
+import 'bulma';
 
 class App extends React.Component {
   render() {
@@ -14,6 +16,7 @@ class App extends React.Component {
           <main>
             <Switch>
               <Route exact path='/' component={Home}/>
+              <Route exact path='/trades' component={TradeIndex}/>
             </Switch>
           </main>
         </div>

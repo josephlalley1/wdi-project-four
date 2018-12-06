@@ -16,7 +16,7 @@ userSchema.methods.validatePassword = function(attemptedPassword) {
 };
 
 userSchema.virtual('transactionsCreated', {
-  ref: 'Transactions',
+  ref: 'Trades',
   localField: '_id',
   foreignField: 'transactionAddedBy'
 });
