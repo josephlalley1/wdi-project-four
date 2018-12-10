@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const tradesSchema = mongoose.Schema({
   coinName: String,
   symbol: String,
-  coinLogo: String,
   transactionTotal: Number,
   transactionAddedBy: {
     type: mongoose.Schema.ObjectId,
