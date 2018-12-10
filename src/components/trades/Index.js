@@ -28,9 +28,12 @@ class TradeIndex extends React.Component {
 
   render() {
     return (
-      <section>
+      <div className="index-container">
         <h1>Portfolio</h1>
-        <div>
+        <div className="portfolio-container">
+          <div className="portfolio-header">
+
+          </div>
           <form onSubmit={this.handleSubmit}>
             <label>Coin Name</label>
             <input onChange={this.handleChange}
@@ -43,7 +46,7 @@ class TradeIndex extends React.Component {
             (trade, i) => <p key={i}>{trade.coinName}</p>
           )}
         </div>
-      </section>
+      </div>
     );
   }
 }
