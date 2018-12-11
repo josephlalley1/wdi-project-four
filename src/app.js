@@ -8,6 +8,7 @@ import TradeNew from './components/trades/TradeNew';
 import TradeShow from './components/trades/TradeShow';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Header from './components/Header';
 
 import './scss/style.scss';
 import 'bulma';
@@ -18,6 +19,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <main>
+            <Header />
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/trades' component={TradeIndex}/>
