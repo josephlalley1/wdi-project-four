@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { saveToken } from '../../lib/auth';
 
-class Register extends React.Component {
+class Login extends React.Component {
   constructor(props){
     super(props);
     this.state = {};
@@ -11,8 +12,11 @@ class Register extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('/api/register', this.state)
-      .then(() => this.props.history.push('/trades'));
+    axios.post('/api/login', this.state)
+      .then(result => {
+        saveToken(result.data.token);
+        this.props.history.push('/houses');
+      });
   }
 
   handleChange({ target: { name, value }}) {
@@ -22,16 +26,14 @@ class Register extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Username</label>
-        <input name="username" onChange={this.handleChange} value={this.state.username || ''}/>
         <label>Email</label>
         <input name="email" onChange={this.handleChange} value={this.state.email || ''}/>
         <label>Password</label>
         <input name="password" onChange={this.handleChange} value={this.state.password || ''}/>
-        <button>Register</button>
+        <button>Log in</button>
       </form>
     );
   }
 }
 
-export default Register;
+export default Login;
