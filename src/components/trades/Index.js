@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class TradeIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-  
+
   componentDidMount() {
     axios.get('/api/trades')
       .then(result => this.setState({ trades: result.data }));
@@ -21,10 +22,12 @@ class TradeIndex extends React.Component {
           </div>
           {this.state.trades && this.state.trades.map(
             (trade, i) =>
-              <div key={i}>
-                <p >{trade.coinName}</p>
-                <p>{trade.transactionTotal}</p>
-              </div>
+              <Link to={`/trades/${trade._id}`}  key={i}>
+                <div>
+                  <p >{trade.coinName}</p>
+                  <p>{trade.transactionTotal}</p>
+                </div>
+              </Link>
           )}
         </div>
       </div>
