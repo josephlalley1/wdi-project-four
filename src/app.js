@@ -6,6 +6,7 @@ import Home from './components/Home';
 import TradeIndex from './components/trades/Index';
 import TradeNew from './components/trades/TradeNew';
 import TradeShow from './components/trades/TradeShow';
+import TradeEdit from './components/trades/TradeEdit';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Header from './components/Header';
@@ -26,6 +27,7 @@ class App extends React.Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path='/trades/new' component={TradeNew}/>
+              <Route path="/trades/:id/edit" component={TradeEdit} />
               <Route path="/trades/:id" component={TradeShow} />
             </Switch>
           </main>

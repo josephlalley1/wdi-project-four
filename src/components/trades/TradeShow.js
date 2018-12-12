@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class TradeShow extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class TradeShow extends React.Component {
                 <h2>{trade.symbol}</h2>
                 <h2>{trade.transactionTotal}</h2>
                 <button onClick={this.handleDelete}>DELETE</button>
+                <Link to={`/trades/${this.props.match.params.id}/edit`}> <button>EDIT</button></Link>
               </div>
             </div>
           </main>

@@ -9,8 +9,23 @@ class TradeIndex extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/trades')
-      .then(result => this.setState({ trades: result.data }));
+    axios.all([
+      axios.get('/api/trades'),
+      axios.get('https://chasing-coins.com/api/v1/top-coins/20')
+    ])
+      .then(axios.spread((localTrades, externalCoinData) => {
+        const lastPrices = {};
+        this.setState({ trades: localTrades.data });
+        console.log(externalCoinData);
+
+        const cryptoArray = Object.values(externalCoinData.data);
+        cryptoArray.forEach(function(element) {
+          Object.assign(lastPrices, {[element.symbol]: element.price});
+        });
+        console.log(cryptoArray);
+        console.log(lastPrices);
+      }));
+
   }
 
   render() {
