@@ -25,13 +25,24 @@ class Login extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Email</label>
-        <input name="email" onChange={this.handleChange} value={this.state.email || ''}/>
-        <label>Password</label>
-        <input name="password" onChange={this.handleChange} value={this.state.password || ''}/>
-        <button>Log in</button>
-      </form>
+      <main className="pa4 black-80">
+        <form className="measure center" onSubmit={this.handleSubmit}>
+          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+            <legend className="f4 fw6 ph0 mh0">Log In</legend>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+              <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email" onChange={this.handleChange} value={this.state.email || ''}/>
+            </div>
+            <div className="mv3">
+              <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+              <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password" onChange={this.handleChange} value={this.state.password || ''}/>
+            </div>
+          </fieldset>
+          <div className="">
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in"/>
+          </div>
+        </form>
+      </main>
     );
   }
 }
