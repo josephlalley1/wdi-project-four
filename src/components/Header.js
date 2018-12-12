@@ -26,10 +26,10 @@ class Header extends React.Component {
         <div className="dtc v-mid w-75 tr">
           {isAuthenticated() && <h2 className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Welcome back, {username.replace(/^\w/, c => c.toUpperCase())}</h2>}
           {isAuthenticated() && <Link to="/trades" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">My portfolio</Link>}
-          {isAuthenticated() && <Link to="/trades/new" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Add a trade</Link>}
+          {isAuthenticated() && <Link to="/trades/new" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns"><ion-icon name="add"></ion-icon>Add a trade</Link>}
           {!isAuthenticated() && <Link to="/register" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Register</Link>}
           {!isAuthenticated() && <Link to="/login" className="link dim dark-gray f6 f5-ns dib">Log in</Link>}
-          {isAuthenticated() && <Link to="/trades" className="link dim dark-gray f6 f5-ns dib" onClick={this.handleLogout}>Log out</Link>}
+          {isAuthenticated() && <Link to="/trades" className="link dim dark-gray f6 f5-ns dib" onClick={this.handleLogout}>Log out <ion-icon name="exit"></ion-icon></Link>}
         </div>
       </nav>
     );
