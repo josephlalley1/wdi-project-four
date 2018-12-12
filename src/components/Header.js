@@ -24,8 +24,8 @@ class Header extends React.Component {
           <img src="http://tachyons.io/img/logo.jpg" className="dib w2 h2 br-100"/>
         </Link>
         <div className="dtc v-mid w-75 tr">
+          {isAuthenticated() && <h2 className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Welcome back, {username.replace(/^\w/, c => c.toUpperCase())}</h2>}
           {isAuthenticated() && <Link to="/trades" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">My portfolio</Link>}
-          {isAuthenticated() && <h2 className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Welcome back, {username}</h2>}
           {isAuthenticated() && <Link to="/trades/new" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Add a trade</Link>}
           {!isAuthenticated() && <Link to="/register" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Register</Link>}
           {!isAuthenticated() && <Link to="/login" className="link dim dark-gray f6 f5-ns dib">Log in</Link>}
