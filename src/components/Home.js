@@ -11,6 +11,7 @@ class Home extends React.Component {
   componentDidMount() {
     axios.get('https://api.coinranking.com/v1/public/coins')
       .then((result) => {
+        result.data.data.coins.length = 20;
         this.setState({ externalData: result.data.data.coins });
         console.log(this.state);
       });
