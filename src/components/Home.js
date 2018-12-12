@@ -18,6 +18,10 @@ class Home extends React.Component {
 
   }
 
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   render() {
     return (
       <div>
@@ -43,7 +47,7 @@ class Home extends React.Component {
                         <td className="pv3 pr3 bb b--light-gray">{coin.name}</td>
                         <td className="pv3 pr3 bb b--light-gray">${parseFloat(coin.price).toFixed(2)}</td>
                         <td className="pv3 pr3 bb b--light-gray">{coin.symbol}</td>
-                        <td className="pv3 pr3 bb b--light-gray">${coin.marketCap}</td>
+                        <td className="pv3 pr3 bb b--light-gray">${this.numberWithCommas(coin.marketCap)}</td>
                         <td className="pv3 pr3 bb b--light-gray"><a href={coin.websiteUrl} className="remove-a-styling">{coin.websiteUrl}</a></td>
                       </tr>
                   )}

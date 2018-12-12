@@ -21,7 +21,7 @@ class Header extends React.Component {
     return (
       <nav className="dt w-100 border-box pa3 ph5-ns bb b--light-gray">
         <Link to="/" className="dtc v-mid mid-gray link dim w-25">
-          <img src="http://tachyons.io/img/logo.jpg" className="dib w2 h2 br-100"/>
+          <h2 className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns site-title">Coin Agent</h2>
         </Link>
         <div className="dtc v-mid w-75 tr">
           {isAuthenticated() && <h2 className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Welcome back, {username.replace(/^\w/, c => c.toUpperCase())}</h2>}
