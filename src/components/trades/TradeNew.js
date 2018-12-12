@@ -19,23 +19,28 @@ export default class TradeNew extends React.Component {
 
   render() {
     return(
-      <section>
-        <h2 className="title is-2">Add a Trade</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>Coin Name</label>
-          <select onChange={this.handleChange}
-            value={this.state.coinName || ''}
-            name="coinName">
-            <option>Bitcoin</option>
-            <option>Ethereum</option>
-          </select>
-          <label>Amount in Holdings</label>
-          <input onChange={this.handleChange}
-            value={this.state.transactionTotal || ''}
-            name="transactionTotal"></input>
-          <button>Submit</button>
+      <main className="pa4 black-80">
+        <form className="measure center" onSubmit={this.handleSubmit}>
+          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+            <legend className="f4 fw6 ph0 mh0"></legend>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">Coin Name</label>
+              <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" onChange={this.handleChange} value={this.state.coinName || ''} name="coinName" />
+            </div>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6" htmlFor="email-address">Coin Symbol</label>
+              <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" onChange={this.handleChange} value={this.state.symbol || ''} name="symbol" />
+            </div>
+            <div className="mv3">
+              <label className="db fw6 lh-copy f6" htmlFor="password">Amount</label>
+              <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" onChange={this.handleChange} value={this.state.transactionTotal || ''} name="transactionTotal" />
+            </div>
+          </fieldset>
+          <div className="">
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add trade"/>
+          </div>
         </form>
-      </section>
+      </main>
     );
   }
 }
