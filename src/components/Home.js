@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 
 class Home extends React.Component {
@@ -47,15 +46,15 @@ class Home extends React.Component {
                         <td className="pv3 pr3 bb b--light-gray"><a href={coin.websiteUrl} className="remove-a-styling">{coin.websiteUrl}</a></td>
                       </tr>
                   )}
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
-  );
-}
+      </div>
+    );
+  }
 }
 
 export default Home;

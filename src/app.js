@@ -24,9 +24,9 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/trades' component={TradeIndex}/>
+              <Route exact path='/trades/new' component={TradeNew}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
-              <Route exact path='/trades/new' component={TradeNew}/>
               <Route path="/trades/:id/edit" component={TradeEdit} />
               <Route path="/trades/:id" component={TradeShow} />
             </Switch>
