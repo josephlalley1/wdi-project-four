@@ -24,7 +24,7 @@ class Register extends React.Component {
       <article className="pa4 black-80">
         <form onSubmit={this.handleSubmit}>
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="ph0 mh0 fw6 clip">Register</legend>
+            <legend className="f4 fw6 ph0 mh0">Register</legend>
             <div className="mt3">
               <label className="db fw4 lh-copy f6" htmlFor="email">Username</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" name="username" onChange={this.handleChange} value={this.state.username || ''}/>
