@@ -35,6 +35,8 @@ class TradeIndex extends React.Component {
                     <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Coin</th>
                     <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Coin Name</th>
                     <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Amount</th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Symbol</th>
+
                     <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Value</th>
                     <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">ID</th>
                     <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white"></th>
@@ -44,12 +46,14 @@ class TradeIndex extends React.Component {
                   {this.state.trades && this.state.trades.map(
                     (trade, i) =>
                       <tr key={i}>
-                        <td className="pv3 pr3 bb b--light-gray">{trade.symbol}</td>
+                        {this.state.externalData && <td className="pv3 pr3 bb b--light-gray"><img src={this.state.externalData.filter(coin => coin.symbol === trade.symbol)[0].iconUrl} width="30px"/></td>}
                         <td className="pv3 pr3 bb b--light-gray">{trade.coinName}</td>
                         <td className="pv3 pr3 bb b--light-gray">{trade.transactionTotal}</td>
+                        <td className="pv3 pr3 bb b--light-gray">{trade.symbol}</td>
+
                         {this.state.externalData && <td className="pv3 pr3 bb b--light-gray">${(trade.transactionTotal * parseFloat(this.state.externalData.filter(coin => coin.symbol === trade.symbol)[0].price)).toFixed(2) }</td> }
                         <td className="pv3 pr3 bb b--light-gray">{trade._id}</td>
-                        <td className="pv3 pr3 bb b--light-gray"><Link to={`/trades/${trade._id}`}  key={i}>View Trade</Link></td>
+                        <td className="pv3 pr3 bb b--light-gray tr"><Link to={`/trades/${trade._id}`}  key={i} className="remove-a-styling">View Trade</Link></td>
                       </tr>
                   )}
                 </tbody>
