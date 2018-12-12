@@ -19,15 +19,19 @@ class Header extends React.Component {
   render() {
     const username = decodeToken().username;
     return (
-      <div className="columns">
-        <Link to="/" className="column is-1">Home</Link>
-        <Link to="/trades" className="column is-1">Trades</Link>
-        {isAuthenticated() && <Link to="/trades/new">Add a trade</Link>}
-        {!isAuthenticated() && <Link className="column is-1" to='/register'>Register</Link>}
-        {!isAuthenticated() && <Link className="column is-1" to='/login'>Log in</Link>}
-        {isAuthenticated() && <h1>Welcome back, {username}</h1>}
-        {isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Log out { username }</a>}
-      </div>
+      <nav className="dt w-100 border-box pa3 ph5-ns bb b--light-gray">
+        <Link to="/" className="dtc v-mid mid-gray link dim w-25">
+          <img src="http://tachyons.io/img/logo.jpg" className="dib w2 h2 br-100"/>
+        </Link>
+        <div className="dtc v-mid w-75 tr">
+          <Link to="/trades" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Trades</Link>
+          {isAuthenticated() && <h2 className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Welcome back, {username}</h2>}
+          {isAuthenticated() && <Link to="/trades/new" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Add a trade</Link>}
+          {!isAuthenticated() && <Link to="/register" className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns">Register</Link>}
+          {!isAuthenticated() && <Link to="/login" className="link dim dark-gray f6 f5-ns dib">Log in</Link>}
+          {isAuthenticated() && <Link to="/trades" className="link dim dark-gray f6 f5-ns dib" onClick={this.handleLogout}>Log out</Link>}
+        </div>
+      </nav>
     );
   }
 }

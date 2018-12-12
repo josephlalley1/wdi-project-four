@@ -10,56 +10,47 @@ class TradeIndex extends React.Component {
 
   componentDidMount() {
     axios.all([
-      axios.get('/api/trades')
+      axios.get('/api/trades'),
+      axios.get('https://api.coinranking.com/v1/public/coins')
     ])
       .then(axios.spread((localTrades, externalCoinData) => {
         this.setState({ trades: localTrades.data });
-
-        const lastPrices = {};
-        console.log(externalCoinData);
-        const cryptoArray = Object.values(externalCoinData.data);
-        cryptoArray.forEach(function(element) {
-          Object.assign(lastPrices, {[element.symbol]: element.price});
-        });
-
-        console.log(cryptoArray);
-        console.log(lastPrices);
+        this.setState({ externalData: externalCoinData.data.data.coins });
+        console.log(this.state);
+        const a = this.state.externalData;
+        console.log(a);
       }));
 
   }
 
   render() {
     return (
-      <div className="index-container">
-        <h1>Portfolio</h1>
+      <div>
         <div className="portfolio-container">
-          <div className="portfolio-header">
-          </div>
           <div className="pa4">
             <div className="overflow-auto">
-              <table className="f6 w-100 mw8 center" cellspacing="0">
+              <table className="f6 w-100 mw8 center" cellSpacing="0">
                 <thead>
                   <tr>
-                    <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Coin</th>
-                    <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Coin Name</th>
-                    <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Amount</th>
-                    <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Value</th>
-                    <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">ID</th>
-                    <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white"></th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Coin</th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Coin Name</th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Amount</th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">Value</th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white">ID</th>
+                    <th className="fw6 bb b--light-gray tl pb3 pr3 bg-white"></th>
                   </tr>
                 </thead>
                 <tbody className="lh-copy">
                   {this.state.trades && this.state.trades.map(
                     (trade, i) =>
-                    <tr>
-                      <td className="pv3 pr3 bb b--black-20">{trade.symbol}</td>
-                      <td className="pv3 pr3 bb b--black-20">{trade.coinName}</td>
-                      <td className="pv3 pr3 bb b--black-20">{trade.transactionTotal}</td>
-                      <td className="pv3 pr3 bb b--black-20"></td>
-                      <td className="pv3 pr3 bb b--black-20">{trade._id}</td>
-                      <td className="pv3 pr3 bb b--black-20"><Link to={`/trades/${trade._id}`}  key={i}>View Trade</Link></td>
-
-                    </tr>
+                      <tr key={i}>
+                        <td className="pv3 pr3 bb b--light-gray">{trade.symbol}</td>
+                        <td className="pv3 pr3 bb b--light-gray">{trade.coinName}</td>
+                        <td className="pv3 pr3 bb b--light-gray">{trade.transactionTotal}</td>
+                        {this.state.externalData && <td className="pv3 pr3 bb b--light-gray">${(trade.transactionTotal * parseFloat(this.state.externalData.filter(coin => coin.symbol === trade.symbol)[0].price)).toFixed(2) }</td> }
+                        <td className="pv3 pr3 bb b--light-gray">{trade._id}</td>
+                        <td className="pv3 pr3 bb b--light-gray"><Link to={`/trades/${trade._id}`}  key={i}>View Trade</Link></td>
+                      </tr>
                   )}
                 </tbody>
               </table>
