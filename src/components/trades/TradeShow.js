@@ -8,10 +8,7 @@ class TradeShow extends React.Component {
     this.state = {};
     this.handleDelete = this.handleDelete.bind(this);
   }
-
-  // This is part of the component Lifecycle
-  // It must be named exactly like this:
-
+  
   componentDidMount() {
     axios.all([
       axios.get(`/api/trades/${this.props.match.params.id}`),
