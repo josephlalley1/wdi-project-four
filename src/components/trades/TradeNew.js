@@ -25,15 +25,15 @@ export default class TradeNew extends React.Component {
             <legend className="f4 fw6 ph0 mh0"></legend>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">Coin Name</label>
-              <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" onChange={this.handleChange} value={this.state.coinName || ''} name="coinName" />
+              <input className="pa2 input-reset ba bg-transparent w-100" onChange={this.handleChange} value={this.state.coinName || ''} name="coinName" />
             </div>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">Coin Symbol</label>
-              <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" onChange={this.handleChange} value={this.state.symbol || ''} name="symbol" />
+              <input className="pa2 input-reset ba bg-transparent w-100" onChange={this.handleChange} value={this.state.symbol || ''} name="symbol" />
             </div>
             <div className="mv3">
               <label className="db fw6 lh-copy f6" htmlFor="password">Amount</label>
-              <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" onChange={this.handleChange} value={this.state.transactionTotal || ''} name="transactionTotal" />
+              <input className="b pa2 input-reset ba bg-transparent w-100" onChange={this.handleChange} value={this.state.transactionTotal || ''} name="transactionTotal" />
             </div>
           </fieldset>
           <div className="">

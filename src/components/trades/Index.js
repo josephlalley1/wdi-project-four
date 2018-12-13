@@ -20,7 +20,6 @@ class TradeIndex extends React.Component {
         const a = this.state.externalData;
         console.log(a);
       }));
-
   }
 
   render() {

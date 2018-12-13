@@ -31,11 +31,11 @@ class Login extends React.Component {
             <legend className="f4 fw6 ph0 mh0">Log In</legend>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-              <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email" onChange={this.handleChange} value={this.state.email || ''}/>
+              <input className="pa2 input-reset ba bg-transparent w-100" type="email" name="email" onChange={this.handleChange} value={this.state.email || ''}/>
             </div>
             <div className="mv3">
               <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-              <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password" onChange={this.handleChange} value={this.state.password || ''}/>
+              <input className="b pa2 input-reset ba bg-transparent w-100" type="password" name="password" onChange={this.handleChange} value={this.state.password || ''}/>
             </div>
           </fieldset>
           <div className="">

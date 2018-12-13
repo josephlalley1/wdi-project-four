@@ -1,6 +1,8 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
+// turn this into a function component
+
 class Chart extends React.Component {
   constructor(props) {
     super(props);
