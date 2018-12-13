@@ -1,13 +1,31 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+// import Chart from '../Chart';
 
 class TradeShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      // chartData: {}
+    };
     this.handleDelete = this.handleDelete.bind(this);
   }
+
+  // getChartData(){
+  //   const coinId = this.state.externalData.filter(coin => coin.name === this.state.trade.coinName)[0].id;
+  //   console.log('this is the externaldata filtered', this.state.externalData.filter(coin => coin.name === this.state.trade.coinName)[0].id);
+  //   console.log('this is the this.state.trade', this.state.trade);
+  //   console.log('this is the coin id', coinId);
+  //   axios.get(`https://api.coinranking.com/v1/public/coin/${coinId}`)
+  //     .then((coinHistoricalData) => this.setState({ chartData: {
+  //       labels: [],
+  //       datasets: [{
+  //         label: `Last ${coinHistoricalData.data.data.coin.history.length} days for ${this.state.trade.coinName}`,
+  //         data: coinHistoricalData.data.data.coin.history
+  //       }]
+  //     }}));
+  // }
 
   componentDidMount() {
     axios.all([
@@ -18,6 +36,7 @@ class TradeShow extends React.Component {
         this.setState({ trade: trade.data });
         this.setState({ externalData: externalCoinData.data.data.coins });
         console.log(this.state);
+        // this.getChartData();
       }));
 
   }
@@ -58,6 +77,7 @@ class TradeShow extends React.Component {
               <Link to={`/trades/${this.props.match.params.id}/edit`} className="f6 link dim br2 ba ph3 pv2 mb2 dib remove-a-styling">Edit Trade</Link>
               <a className="f6 link dim br2 ba ph3 pv2 mb2 dib remove-a-styling button-margins" onClick={this.handleDelete}>Delete Trade</a>
             </article>
+            {/* <Chart chartData={this.state.chartData}/> */}
           </div>
           :
           <p>🏛🏛🏛 Waiting for trade 🏛🏛🏛</p>
