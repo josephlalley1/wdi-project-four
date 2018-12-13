@@ -8,7 +8,7 @@ class TradeShow extends React.Component {
     this.state = {};
     this.handleDelete = this.handleDelete.bind(this);
   }
-  
+
   componentDidMount() {
     axios.all([
       axios.get(`/api/trades/${this.props.match.params.id}`),
@@ -58,7 +58,6 @@ class TradeShow extends React.Component {
               <Link to={`/trades/${this.props.match.params.id}/edit`} className="f6 link dim br2 ba ph3 pv2 mb2 dib remove-a-styling">Edit Trade</Link>
               <a className="f6 link dim br2 ba ph3 pv2 mb2 dib remove-a-styling button-margins" onClick={this.handleDelete}>Delete Trade</a>
             </article>
-
           </div>
           :
           <p>🏛🏛🏛 Waiting for trade 🏛🏛🏛</p>
