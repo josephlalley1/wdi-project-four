@@ -1,11 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import { handleChange } from '../../lib/common';
+import { decodeToken } from '../../lib/auth';
 
 export default class TradeNew extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      transactionAddedBy: decodeToken().sub
+    };
     this.handleChange = handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

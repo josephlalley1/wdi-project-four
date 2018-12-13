@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { decodeToken } from '../../lib/auth';
 
 class TradeIndex extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class TradeIndex extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="lh-copy">
-                  {this.state.trades && this.state.trades.map(
+                  {this.state.trades && this.state.trades.filter(trade => trade.transactionAddedBy === decodeToken().sub).map(
                     (trade, i) =>
                       <tr key={i}>
                         {this.state.externalData && <td className="pv3 pr3 bb b--light-gray"><img src={this.state.externalData.filter(coin => coin.symbol === trade.symbol)[0].iconUrl} width="30px"/></td>}
