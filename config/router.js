@@ -2,6 +2,7 @@ const router = require('express').Router();
 const trades = require('../controllers/tradesController');
 const authController = require('../controllers/authController');
 
+
 router.route('/trades')
   .get(trades.index)
   .post(trades.create);
