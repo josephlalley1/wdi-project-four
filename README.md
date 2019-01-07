@@ -94,11 +94,11 @@ Log in page:
 User portfolio page:
 <img width="1383" alt="portfolio page" src="https://i.imgur.com/xTB3yBy.png">
 
-Show a trade page:
-<img width="1383" alt="show trade page" src="https://i.imgur.com/CcnVeeA.png">
-
 Add a trade page:
-<img width="1383" alt="create trade page" src="https://i.imgur.com/wNK2naZ.png">
+<img width="1383" alt="add trade page" src="https://i.imgur.com/CcnVeeA.png">
+
+Show a trade page:
+<img width="1383" alt="show trade page" src="https://i.imgur.com/wNK2naZ.png">
 
 Edit a trade page:
 <img width="1383" alt="edit trade page" src="https://i.imgur.com/Qq5lLtw.png">
