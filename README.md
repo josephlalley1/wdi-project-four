@@ -94,15 +94,37 @@ Log in page:
 User portfolio page:
 <img width="1383" alt="portfolio page" src="https://i.imgur.com/xTB3yBy.png">
 
-Add a trade page:
-<img width="1383" alt="add trade page" src="https://i.imgur.com/CcnVeeA.png">
-
 Show a trade page:
-<img width="1383" alt="show trade page" src="https://i.imgur.com/wNK2naZ.png">
+<img width="1383" alt="show trade page" src="https://i.imgur.com/CcnVeeA.png">
+
+Add a trade page:
+<img width="1383" alt="create trade page" src="https://i.imgur.com/wNK2naZ.png">
 
 Edit a trade page:
 <img width="1383" alt="edit trade page" src="https://i.imgur.com/Qq5lLtw.png">
 
+
+---
+
+### Code Wins
+
+This project allowed me to test out new things and see what I could really do within React. I discovered a new way to do Axios requests, by using 'Axios.all' which is a promise based request system, where (in this snippet) both GET Requests must return before the '.then' is continued. This was really interesting and very helpful.
+
+```
+componentDidMount() {
+    axios.all([
+      axios.get('/api/trades'),
+      axios.get('https://api.coinranking.com/v1/public/coins')
+    ])
+      .then(axios.spread((localTrades, externalCoinData) => {
+        this.setState({ trades: localTrades.data });
+        this.setState({ externalData: externalCoinData.data.data.coins });
+        console.log(this.state);
+        const a = this.state.externalData;
+        console.log(a);
+      }));
+  }
+```
 
 ---
 
